@@ -1,0 +1,49 @@
+﻿<form name="forms.enterpriseForm" novalidate ng-model="form">
+    <div class="form-group" ng-repeat="prop in enterpriseProps" ng-class="{ 'has-error': forms.enterpriseForm[prop.Name].$touched && forms.enterpriseForm[prop.Name].$invalid }">
+        <label class="form-label"
+               data-toggle="tooltip"
+               title="{{prop.Tooltip}}">
+            {{prop.Label}} <sup><i class="fa fa-info-circle" aria-hidden="true"></i></sup>
+        </label>
+
+        <!-- Display dropdown if options != null -->
+        <select ng-if="prop.Options !=null"
+                name="{{prop.Name}}"
+                class="form-control"
+                id="{{prop.Name}}"
+                ng-model="prop.Value"
+                ng-required="{{prop.Required}}">
+            <option ng-repeat="opt in prop.Options" value={{opt.Value}} ng-selected="opt.Selected">{{opt.Name}}</option>
+        </select>
+
+        <!--Display a textbox if options == null -->
+        <input ng-if="prop.Options ==null"
+               class="form-control"
+               name="{{prop.Name}}"
+               id="{{prop.Name}}"
+               type="{{prop.Type}}"
+               step="any"
+               ng-model="prop.Value"
+               pattern="{{prop.Pattern}}"
+               ng-minlength="{{prop.MinLength}}"
+               ng-maxlength="{{prop.MaxLength}}"
+               ng-required="{{prop.Required}}">
+
+        <!-- ngMessages -->
+        <div class="help-block" ng-messages="forms.enterpriseForm[prop.Name].$error" ng-show="forms.enterpriseForm[prop.Name].$touched">
+            <div ng-messages-include="views/partials/messages.html"></div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-success" ng-disabled="forms.enterpriseForm.$invalid" ng-click="SaveComponent('enterprise', enterpriseProps)" data-toggle="tooltip" title="Save Enterprise">
+            <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-danger" ng-click="DeleteComponent('enterprise', enterpriseProps)" data-toggle="tooltip" title="Delete Enterprise">
+            <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-info" ng-click="ClearForm('enterprise')" data-toggle="tooltip" title="Clear Form">
+            <i class="fa fa-eraser fa-lg" aria-hidden="true"></i>
+        </button>
+    </div>
+</form>

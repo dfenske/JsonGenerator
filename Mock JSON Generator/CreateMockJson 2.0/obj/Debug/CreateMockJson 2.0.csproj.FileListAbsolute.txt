@@ -1,0 +1,40 @@
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\csc.exe
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\System.Collections.Immutable.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\System.Reflection.Metadata.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\vbc.exe
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\VBCSCompiler.exe
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\roslyn\VBCSCompiler.exe.config
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\CreateMockJson 2.0.dll.config
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\CreateMockJson 2.0.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\CreateMockJson 2.0.pdb
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\CreateMockJson 2.0\CreateMockJson 2.0\obj\Debug\CreateMockJson 2.0.dll
+C:\CreateMockJson 2.0\CreateMockJson 2.0\obj\Debug\CreateMockJson 2.0.pdb
+C:\CreateMockJson 2.0\CreateMockJson 2.0\obj\Debug\CreateMockJson 2.0.csprojResolveAssemblyReference.cache
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\csc.exe
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\vbc.exe
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\VBCSCompiler.exe
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\CreateMockJson 2.0.dll.config
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\CreateMockJson 2.0.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\CreateMockJson 2.0.pdb
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\obj\Debug\CreateMockJson 2.0.csprojResolveAssemblyReference.cache
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\obj\Debug\CreateMockJson 2.0.dll
+C:\Users\danielle.m.fenske\OneDrive\Resumes\Portfolio of Projects\Mock JSON Generator\CreateMockJson 2.0\obj\Debug\CreateMockJson 2.0.pdb
