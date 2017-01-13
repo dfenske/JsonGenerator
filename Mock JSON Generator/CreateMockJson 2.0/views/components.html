@@ -1,0 +1,16 @@
+﻿<div class="container">
+    <div class="col-lg-5">
+        <ta-hierarchy></ta-hierarchy>
+    </div>
+    <div class="col-lg-7" style="margin-bottom:40px">
+        <uib-tabset active="active">
+            <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" ng-click="resizeMap()" disable="tab.disabled">
+                <div class="row">
+                    <button style="float:left; background-color: transparent;" class="btn navButton" ng-show="active > 1" ng-click="GoToPrevPage()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+                    <button style="float:right; background-color: transparent;" class="btn navButton" ng-show="active < 7 && !tabs[$index + 1].disabled" ng-click="GoToNextPage()"><i class="fa fa-arrow-right" aria-hidden="true"></i> Next</button>
+                </div>
+                    <div ng-include="tab.template"></div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

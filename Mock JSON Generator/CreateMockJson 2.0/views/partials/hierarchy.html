@@ -1,0 +1,53 @@
+﻿<div class="well">
+    <div class="row">
+        <div class="col-lg-6"><h2>Hierarchy:</h2></div>
+        <div class="col-lg-6 text-right">
+            <!--<button class="btn btn-default" data-toggle="tooltip" title="Undo Last Action"><i class="fa fa-undo" aria-hidden="true"></i></button>-->
+            <button class="btn btn-default" data-toggle="tooltip" title="Start Over" ng-click="PopUpModal()"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn text-gray btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)">
+                <span class="glyphicon"
+                      ng-class="{
+                      'glyphicon-chevron-right': collapsed,
+                      'glyphicon-chevron-down': !collapsed
+                      }">
+                </span>
+            </a>
+            {{node.title}}
+            <a class="pull-right btn btn-xs" ng-click="select(node.title)" data-toggle="tooltip" title="{{node.tooltip}}" data-nodrag >
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </a>
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+        </ol>
+    </script>
+    <div class="text-muted" ng-if="!dataExists">
+        No components created yet.
+    </div>
+    <div ng-if="dataExists">
+        <div class="row">
+            <div class="col-sm-12">
+                <div ui-tree id="tree-root">
+                    <ol ui-tree-nodes ng-model="data">
+                        <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="text-center"><button class="btn btn-warning" ng-click="GenerateAndDownload()" ng-href="{{ url }}">Generate JSON</button></div>
+    </div>
+
+</div>
+<div>
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" is-open="false">
+            <uib-accordion-heading>Click to show JSON representation of hierarchy <i class="fa fa-angle-down" aria-hidden="true"></i></uib-accordion-heading>
+            <pre>{{hierarchy | json}}</pre>
+        </div>
+</div>

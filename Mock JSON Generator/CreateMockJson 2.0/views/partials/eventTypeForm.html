@@ -1,0 +1,93 @@
+﻿<form name="forms.eventTypeForm" novalidate>
+    <div class="form-group" ng-repeat="prop in eventTypeProps" ng-class="{ 'has-error': forms.eventTypeForm[prop.Name].$touched && forms.eventTypeForm[prop.Name].$invalid }">
+        <label class="form-label"
+               data-toggle="tooltip"
+               title="{{prop.Tooltip}}">
+            {{prop.Label}} <sup><i class="fa fa-info-circle" aria-hidden="true"></i></sup>
+        </label>
+
+        <!-- Display dropdown if options != null -->
+        <select ng-if="prop.Options !=null && prop.Type!='dynamicList'"
+                name="{{prop.Name}}"
+                class="form-control"
+                id="{{prop.Name}}"
+                ng-model="prop.Value"
+                ng-required="{{prop.Required}}">
+            <option ng-repeat="opt in prop.Options" value={{opt.Value}} ng-selected="opt.Selected">{{opt.Name}}</option>
+        </select>
+
+        <!--Display a textbox if options == null -->
+        <input ng-if="prop.Options==null && prop.Type!='dynamicList'"
+               class="form-control"
+               name="{{prop.Name}}"
+               id="{{prop.Name}}"
+               type="{{prop.Type}}"
+               step="any"
+               ng-model="prop.Value"
+               pattern="{{prop.Pattern}}"
+               ng-minlength="{{prop.MinLength}}"
+               ng-maxlength="{{prop.MaxLength}}"
+               ng-required="{{prop.Required}}">
+
+        <!-- Display dynamic list otherwise -->
+        <div ng-if="prop.Type=='dynamicList'">
+            <!-- Dynamic Event Type Parameters section -->
+
+            <div class="row text-center">
+                <label class="col-lg-3" data-toggle="tooltip" title="The name of the parameter used in the backend (no spaces)">Parameter Name <sup><i class="fa fa-info-circle" aria-hidden="true"></i></sup></label>
+                <label class="col-lg-3" data-toggle="tooltip" title="The display name of the parameter (spaces allowed)">Friendly Name <sup><i class="fa fa-info-circle" aria-hidden="true"></i></sup></label>
+                <label class="col-lg-2" data-toggle="tooltip" title="The text to display after each measurement of this type, eg. km">Unit <sup><i class="fa fa-info-circle" aria-hidden="true"></i></sup></label>
+                <label class="col-lg-2" data-toggle="tooltip" title="Specifies if the parameter is a numeric type or not.">Number? <sup><i class="fa fa-info-circle" aria-hidden="true"></i></sup></label>
+                <label class="col-lg-2" data-toggle="tooltip" title="Specifies if the parameter will be displayed in Asset Details page.">Display? <sup><i class="fa fa-info-circle" aria-hidden="true"></i></sup></label>
+            </div>
+            <div class="row" ng-repeat="param in prop.ParamArray" style="padding-bottom: 10px;">
+                <div class="col-lg-3" ng-class="{ 'has-error': forms.eventTypeForm[param.TagId+'-Name'].$touched && forms.eventTypeForm[param.TagId+'-Name'].$invalid }">
+                    <input class="form-control" id="{{param.TagId}}-Name" name="{{param.TagId}}-Name" ng-model="param.Name" pattern="{{prop.Pattern}}" required />
+                </div>
+                <div class="col-lg-3" ng-class="{ 'has-error': forms.eventTypeForm[param.TagId+'-FriendlyName'].$touched && forms.eventTypeForm[param.TagId+'-FriendlyName'].$invalid }">
+                    <input class="form-control" id="{{param.TagId}}-FriendlyName" name="{{param.TagId}}-FriendlyName" ng-model="param.FriendlyName" required />
+                </div>
+                <div class="col-lg-2">
+                    <input class="form-control" id="{{param.TagId}}-Unit" name="{{param.TagId}}-Unit" ng-model="param.Unit" />
+                </div>
+                <div class="col-lg-2">
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="{{param.TagId}}-Num" name="{{param.TagId}}-Num" ng-model="param.Num" /></label>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="{{param.TagId}}-Display" name="{{param.TagId}}-Display" ng-model="param.Display" /></label>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <button ng-click="subtractParameterInput('eventType', param.Id)" style="border: none; background-color: transparent"><i style="cursor:pointer; padding-top:10px;" tabindex="-1" class="fa fa-minus-circle text-info hoverColor" data-toggle="tooltip" title="Delete Parameter"></i></button>
+                </div>
+                <!-- ngMessages -->
+                <div class="col-lg-3" ng-class="{ 'has-error': forms.eventTypeForm[param.TagId+'-Name'].$touched && forms.eventTypeForm[param.TagId+'-Name'].$invalid }">
+                    <div class="help-block" ng-messages="forms.eventTypeForm[param.TagId+'-Name'].$error" ng-show="forms.eventTypeForm[param.TagId+'-Name'].$touched">
+                        <div ng-messages-include="views/partials/messages.html"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3" ng-class="{ 'has-error': forms.eventTypeForm[param.TagId+'-FriendlyName'].$touched && forms.eventTypeForm[param.TagId+'-FriendlyName'].$invalid }">
+                    <div class="help-block" ng-class="{ 'has-error': forms.eventTypeForm[param.TagId+'-FriendlyName'].$touched && forms.eventTypeForm[param.TagId+'-FriendlyName'].$invalid }" ng-messages="forms.eventTypeForm[param.TagId+'-FriendlyName'].$error" ng-show="forms.eventTypeForm[param.TagId+'-FriendlyName'].$touched">
+                        <div ng-messages-include="views/partials/messages.html"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin:10px;">
+                <button ng-click="addParameterInput('eventType')" style="border: none; background-color: transparent"><i style="cursor:pointer;" tabindex="-1" class="fa fa-plus-circle text-info hoverColor" data-toggle="tooltip" title="Add a Parameter"></i></button>
+            </div>
+        </div>
+
+        <!-- ngMessages -->
+        <div class="help-block" ng-messages="forms.eventTypeForm[prop.Name].$error" ng-show="forms.eventTypeForm[prop.Name].$touched">
+            <div ng-messages-include="views/partials/messages.html"></div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success" ng-disabled="forms.eventTypeForm.$invalid" ng-click="SaveComponent('eventType', eventTypeProps)" data-toggle="tooltip" title="Save Event Type"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i></button>
+        <button class="btn btn-danger" ng-click="DeleteComponent('eventType', eventTypeProps)" data-toggle="tooltip" title="Delete Event Type"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
+        <button class="btn btn-info" ng-click="ClearForm('eventType')" data-toggle="tooltip" title="Clear Form"><i class="fa fa-eraser fa-lg" aria-hidden="true"></i></button>
+    </div>
+</form>

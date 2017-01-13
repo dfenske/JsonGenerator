@@ -1,0 +1,49 @@
+﻿<form name="forms.userForm" novalidate>
+    <div class="form-group" ng-repeat="prop in userProps" ng-class="{ 'has-error': forms.userForm[prop.Name].$touched && forms.userForm[prop.Name].$invalid }">
+        <label class="form-label"
+               data-toggle="tooltip"
+               title="{{prop.Tooltip}}">
+            {{prop.Label}} <sup><i class="fa fa-info-circle" aria-hidden="true"></i></sup>
+        </label>
+
+        <!-- Display dropdown if options != null -->
+        <select ng-if="prop.Options !=null"
+                name="{{prop.Name}}"
+                class="form-control"
+                id="{{prop.Name}}"
+                ng-model="prop.Value"
+                ng-required="{{prop.Required}}">
+            <option ng-repeat="opt in prop.Options" value={{opt.Value}} ng-selected="opt.Selected">{{opt.Name}}</option>
+        </select>
+
+        <!--Display a textbox if options == null -->
+        <input ng-if="prop.Options ==null"
+               class="form-control"
+               name="{{prop.Name}}"
+               id="{{prop.Name}}"
+               pattern="{{prop.Pattern}}"
+               type="{{prop.Type}}"
+               step="any"
+               ng-model="prop.Value"
+               ng-minlength="{{prop.MinLength}}"
+               ng-maxlength="{{prop.MaxLength}}"
+               ng-required="{{prop.Required}}">
+
+        <!-- ngMessages -->
+        <div class="help-block" ng-messages="forms.userForm[prop.Name].$error" ng-show="forms.userForm[prop.Name].$touched">
+            <div ng-messages-include="views/partials/messages.html"></div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-success" ng-disabled="forms.userForm.$invalid" ng-click="SaveComponent('user', userProps)" data-toggle="tooltip" title="Save User">
+            <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-danger" ng-click="DeleteComponent('user', userProps)" data-toggle="tooltip" title="Delete User">
+            <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-info" ng-click="ClearForm('user')" data-toggle="tooltip" title="Clear Form">
+            <i class="fa fa-eraser fa-lg" aria-hidden="true"></i>
+        </button>
+    </div>
+</form>
